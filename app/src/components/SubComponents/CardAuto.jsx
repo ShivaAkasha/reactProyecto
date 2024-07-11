@@ -2,11 +2,11 @@ import React from "react";
 
 const CardAuto = (props) => {
   return (
-    <div className="">
+    <div className="contenedor-card">
       <div
         key={props.id}
         className="card"
-        style={{ width: "18rem" }}
+        style={{ width: "300px"}}
       >
         <img src={props.imagen} className="card-img-top foto" alt="..." />
         <div className="card-body">
