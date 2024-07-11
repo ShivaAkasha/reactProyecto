@@ -22,7 +22,7 @@ export function MainContainer() {
           role="tabpanel"
           aria-labelledby="productos-tab"
         >
-          <SeccionAutos />
+          <SeccionAutos/>
         </div>
         <div
           className="tab-pane fade"
