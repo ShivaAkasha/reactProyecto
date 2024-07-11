@@ -18,7 +18,7 @@ const CardAuto = (props) => {
           <p className="card-text">{"$" + formatPrice(props.precio)}</p>
           <div className="col-xxl-12 d-flex flex-row justify-content-center">
           <button className="btn btn-primary">Editar</button>
-          <button className="btn btn-danger ms-1" onClick={handleDelete}>Borrar</button>
+          <button className="btn btn-danger ms-1" onClick={handleDelete}>Eliminar</button>
           
           </div>
           
