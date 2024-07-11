@@ -1,11 +1,11 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../src/assets/css/styles.css';
-import { SeccionAutos } from "./components/SeccionAutos";
+import { MainContainer } from "./components/MainContainer";
 function App() {
   return (
     <>
-      <SeccionAutos/>
+      <MainContainer/>
     </>
     
   );
