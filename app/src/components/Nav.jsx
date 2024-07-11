@@ -53,20 +53,6 @@ export function Nav() {
             Gestion De Clientes
           </button>
         </li>
-        <li className="nav-item" role="presentation">
-          <button
-            className="nav-link tab"
-            id="categorias-tab"
-            data-bs-toggle="tab"
-            data-bs-target="#categorias"
-            type="button"
-            role="tab"
-            aria-controls="categorias"
-            aria-selected="false"
-          >
-            Gestion de Categorias
-          </button>
-        </li>
       </ul>
     </div>
   );
