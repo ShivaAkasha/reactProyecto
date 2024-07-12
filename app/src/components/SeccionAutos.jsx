@@ -30,15 +30,16 @@ export function SeccionAutos() {
     setNewCar((prevState) => ({ ...prevState, [name]: value }));
   };
 
-  const handleAddCar = () => {
+  const handleAddCar = (e) => {
+    e.preventDefault();
     const { idvehiculo, year, modelo, marca, precio, patente, imagen } = newCar;
     const newVehiculo = new Vehiculo(
-      idvehiculo,
-      year,
-      modelo,
-      marca,
+      idvehiculo.trim(),
+      parseInt(year),
+      modelo.trim(),
+      marca.trim(),
       parseInt(precio),
-      patente,
+      patente.trim(),
       imagen
     );
     setCars((prevState) => [...prevState, newVehiculo]);
@@ -72,50 +73,58 @@ export function SeccionAutos() {
 
         <div className="add-car-form">
           <h3>Add New Car</h3>
-          <input
-            type="text"
-            name="idvehiculo"
-            placeholder="ID"
-            value={newCar.idvehiculo}
-            onChange={handleInputChange}
-          />
-          <input
-            type="text"
-            name="year"
-            placeholder="Year"
-            value={newCar.year}
-            onChange={handleInputChange}
-          />
-          <input
-            type="text"
-            name="modelo"
-            placeholder="Model"
-            value={newCar.modelo}
-            onChange={handleInputChange}
-          />
-          <input
-            type="text"
-            name="marca"
-            placeholder="Brand"
-            value={newCar.marca}
-            onChange={handleInputChange}
-          />
-          <input
-            type="text"
-            name="precio"
-            placeholder="Price"
-            value={newCar.precio}
-            onChange={handleInputChange}
-          />
-          <input
-            type="text"
-            name="patente"
-            placeholder="License Plate"
-            value={newCar.patente}
-            onChange={handleInputChange}
-          />
-          <input type="file" onChange={handleFileChange} />
-          <button onClick={handleAddCar}>Add Car</button>
+          <form onSubmit={handleAddCar}>
+            <input
+              type="text"
+              name="idvehiculo"
+              placeholder="ID"
+              value={newCar.idvehiculo}
+              onChange={handleInputChange}
+              required
+            />
+            <input
+              type="number"
+              name="year"
+              placeholder="Year"
+              value={newCar.year}
+              onChange={handleInputChange}
+              required
+            />
+            <input
+              type="text"
+              name="modelo"
+              placeholder="Model"
+              value={newCar.modelo}
+              onChange={handleInputChange}
+              required
+            />
+            <input
+              type="text"
+              name="marca"
+              placeholder="Brand"
+              value={newCar.marca}
+              onChange={handleInputChange}
+              required
+            />
+            <input
+              type="number"
+              name="precio"
+              placeholder="Price"
+              value={newCar.precio}
+              onChange={handleInputChange}
+              required
+            />
+            <input
+              type="text"
+              name="patente"
+              placeholder="License Plate"
+              value={newCar.patente}
+              onChange={handleInputChange}
+              required
+            />
+            <input type="file" onChange={handleFileChange} required />
+            <button type="submit">Add Car</button>
+          </form>
         </div>
       </div>
     </>

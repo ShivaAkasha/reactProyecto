@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Modal, Button, Form } from "react-bootstrap";
 
-export function EditarUsuarioModal({ show, handleClose, usuario, handleSave }) {
+import Usuario from "../class/Usuario"; // Importar la clase Usuario
+
+export function EditarUsuarioModal({ usuario, onSave }) {
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
   const [rut, setRut] = useState("");
@@ -24,70 +25,126 @@ export function EditarUsuarioModal({ show, handleClose, usuario, handleSave }) {
       alert("Por favor ingresa todos los campos válidos.");
       return;
     }
-    const usuarioEditado = {
-      ...usuario,
-      _rut: rut,
-      _nombre: nombre,
-      _apellido: apellido,
-      _telefono: telefono,
-      _correo: correo
-    };
-    handleSave(usuarioEditado);
+    const usuarioEditado = new Usuario(rut, nombre, apellido, telefono, correo);
+    onSave(usuarioEditado);
   };
 
   return (
-    <Modal show={show} onHide={handleClose}>
-      <Modal.Header closeButton>
-        <Modal.Title>Editar Usuario</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <Form onSubmit={handleSubmit}>
-          <Form.Group className="mb-3" controlId="editarRutUsuario">
-            <Form.Label>RUT</Form.Label>
-            <Form.Control
-              type="text"
-              value={rut}
-              onChange={(e) => setRut(e.target.value)}
-              readOnly
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="editarNombreUsuario">
-            <Form.Label>Nombre</Form.Label>
-            <Form.Control
-              type="text"
-              value={nombre}
-              onChange={(e) => setNombre(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="editarApellidoUsuario">
-            <Form.Label>Apellido</Form.Label>
-            <Form.Control
-              type="text"
-              value={apellido}
-              onChange={(e) => setApellido(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="editarTelefonoUsuario">
-            <Form.Label>Teléfono</Form.Label>
-            <Form.Control
-              type="text"
-              value={telefono}
-              onChange={(e) => setTelefono(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="editarCorreoUsuario">
-            <Form.Label>Correo</Form.Label>
-            <Form.Control
-              type="email"
-              value={correo}
-              onChange={(e) => setCorreo(e.target.value)}
-            />
-          </Form.Group>
-          <Button variant="primary" type="submit">
-            Guardar Cambios
-          </Button>
-        </Form>
-      </Modal.Body>
-    </Modal>
+    <div
+      className="modal fade"
+      id="modalEditarUsuario"
+      tabIndex="-1"
+      aria-labelledby="modalEditarUsuarioLabel"
+      aria-hidden="true"
+    >
+      <div className="modal-dialog">
+        <div className="modal-content">
+          <div className="modal-header">
+            <h5 className="modal-title" id="modalEditarUsuarioLabel">
+              Editar Usuario
+            </h5>
+            <button
+              type="button"
+              className="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div className="modal-body">
+            <form
+              id="formEditarUsuario"
+              className="needs-validation-usuarios"
+              noValidate
+              onSubmit={handleSubmit}
+            >
+              <div className="mb-3">
+                <label htmlFor="editarRutUsuario" className="form-label">
+                  RUT
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="editarRutUsuario"
+                  value={rut}
+                  onChange={(e) => setRut(e.target.value)}
+                  required
+                  readOnly
+                />
+                <div className="invalid-feedback">
+                  Por favor ingresa un rut válido
+                </div>
+              </div>
+              <div className="mb-3">
+                <label htmlFor="editarNombreUsuario" className="form-label">
+                  Nombre
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="editarNombreUsuario"
+                  value={nombre}
+                  onChange={(e) => setNombre(e.target.value)}
+                  required
+                />
+                <div className="invalid-feedback">
+                  Por favor ingresa un nombre
+                </div>
+              </div>
+              <div className="mb-3">
+                <label htmlFor="editarApellidoUsuario" className="form-label">
+                  Apellido
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="editarApellidoUsuario"
+                  value={apellido}
+                  onChange={(e) => setApellido(e.target.value)}
+                  required
+                />
+                <div className="invalid-feedback">
+                  Por favor ingresa un apellido
+                </div>
+              </div>
+              <div className="mb-3">
+                <label htmlFor="editarTelefonoUsuario" className="form-label">
+                  Teléfono
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="editarTelefonoUsuario"
+                  value={telefono}
+                  onChange={(e) => setTelefono(e.target.value)}
+                  required
+                />
+                <div className="invalid-feedback">
+                  Por favor ingresa un teléfono
+                </div>
+              </div>
+              <div className="mb-3">
+                <label htmlFor="editarCorreoUsuario" className="form-label">
+                  Correo
+                </label>
+                <input
+                  type="email"
+                  className="form-control"
+                  id="editarCorreoUsuario"
+                  value={correo}
+                  onChange={(e) => setCorreo(e.target.value)}
+                  required
+                />
+                <div className="invalid-feedback">
+                  Por favor ingresa un correo
+                </div>
+              </div>
+              <button type="submit" className="btn btn-primary">
+                Guardar Cambios
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
