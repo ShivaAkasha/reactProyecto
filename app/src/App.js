@@ -1,6 +1,4 @@
-import React from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '../src/assets/css/styles.css';
+import React from "react"
 import { MainContainer } from "./components/MainContainer";
 function App() {
   return (

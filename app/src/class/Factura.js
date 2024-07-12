@@ -8,10 +8,9 @@ class Factura {
         this._usuario = usuario;
         this._iva = iva;
         this._total = total;
-
     }
 
-    //Getters
+    // Getters
     get getIdfac() {
         return this._idfac;
     }
@@ -28,13 +27,40 @@ class Factura {
         return this._vehiculo;
     }
     get getUsuario() {
-        return this._Usuario;
+        return this._usuario;
     }
     get getIva() {
-        return this._Iva;
+        return this._iva;
     }
     get getTotal() {
-        return this._Total ;
+        return this._total;
+    }
+
+    // Setters
+    set setIdfac(idfac) {
+        this._idfac = idfac;
+    }
+    set setFecha(fecha) {
+        this._fecha = fecha;
+    }
+    set setRutus(rutus) {
+        this._rutus = rutus;
+    }
+    set setCosto(costo) {
+        this._costo = costo;
+    }
+    set setVehiculo(vehiculo) {
+        this._vehiculo = vehiculo;
+    }
+    set setUsuario(usuario) {
+        this._usuario = usuario;
+    }
+    set setIva(iva) {
+        this._iva = iva;
+    }
+    set setTotal(total) {
+        this._total = total;
     }
 }
- export default Factura;
+
+export default Factura;

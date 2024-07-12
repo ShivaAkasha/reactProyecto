@@ -2,6 +2,7 @@ import React from "react";
 import { Nav } from "./Nav";
 import { SeccionAutos } from "./SeccionAutos";
 import { FormularioFactura } from "./FormularioFactura";
+import { SeccionUsuarios } from "./SeccionUsuarios"; // Importar SeccionUsuarios
 
 export function MainContainer() {
   return (
@@ -22,7 +23,7 @@ export function MainContainer() {
           role="tabpanel"
           aria-labelledby="productos-tab"
         >
-          <SeccionAutos />
+          <SeccionAutos/>
         </div>
         <div
           className="tab-pane fade"
@@ -30,6 +31,7 @@ export function MainContainer() {
           role="tabpanel"
           aria-labelledby="meseros-tab"
         >
+          <SeccionUsuarios/> {/* Añadir SeccionUsuarios aquí */}
         </div>
         <div
           className="tab-pane fade"
