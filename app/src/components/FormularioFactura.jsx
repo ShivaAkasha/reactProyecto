@@ -47,7 +47,7 @@ export function FormularioFactura() {
 
     return (
         <div>
-            <form>
+            <form className="col-3 m-auto">
                 <div className="mb-3">
                     <label htmlFor="idfac" className="form-label">ID Factura</label>
                     <input type="text" className="form-control" id="idfac" name="idfac" onChange={handleInputChange} />

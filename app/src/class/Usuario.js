@@ -1,4 +1,4 @@
-class Usuario{
+class Usuario {
     constructor(rut, nombre, apellido, telefono, correo, vehiculo) {
         this._rut = rut;
         this._nombre = nombre;
@@ -8,7 +8,7 @@ class Usuario{
         this._vehiculo = vehiculo;
     }
 
-    //Getters
+    // Getters
     get getrut() {
         return this._rut;
     }
@@ -24,8 +24,22 @@ class Usuario{
     get getCorreo() {
         return this._correo;
     }
-    get getVehiculo() {
-        return this._vehiculo;
+
+    // Setters
+    set setRut(rut) {
+        this._rut = rut;
+    }
+    set setNombre(nombre) {
+        this._nombre = nombre;
+    }
+    set setApellido(apellido) {
+        this._apellido = apellido;
+    }
+    set setTelefono(telefono) {
+        this._telefono = telefono;
+    }
+    set setCorreo(correo) {
+        this._correo = correo;
     }
 }
-    export default Usuario;
+export default Usuario;
